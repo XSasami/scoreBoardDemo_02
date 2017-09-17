@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0' , maximum-scale=1.0, minimum-scale=1.0>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scoreBoard</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/icon/iconfont.css">
+    <script src="./script/index.js"></script>
+</head>
+
+<body>
+    <!-- 计分板 -->
+    <div class="scoreBoard">
+        <div class="content">
+            <div class="title">计分板</div>
+            <span class="close iconfont icon-close"></span>
+            <ul class="groups clearfix">
+                <li class="group f_l">
+                    <h3 class="groupN">第一组</h3>
+                    <div class="subScore iconfont icon-jian-xianxingyuankuang"></div>
+                    <div class="flagContent">
+                        <!-- <span></span> -->
+                    </div>
+                    <div class="score">0</div>
+                    <div class="addScore"></div>
+                </li>
+            </ul>
+            <span class="addGroup">立即分组</span>
+        </div>
+    </div>
+    <!-- 添加分组 -->
+    <div class="mask">
+        <div class="grouping">
+            <span class="close iconfont icon-close"></span>
+            <div class="title">分&nbsp;&nbsp;&nbsp;组</div>
+            <div class="content">
+                <div class="show clearfix">
+                    <p class="f_l">将全班同学分为</p>
+                    <div class="set f_l">
+                        <div class="sub f_l">-</div>
+                        <div class="add f_r">+</div>
+                        <div class="count">1</div>
+                    </div>
+                    <p class="f_l">组</p>
+                </div>
+                <span class="begin">开始分组</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- 计分板实现大概思路
+
+1.每个组就是一个li标签
+2.元素居中选择通过padding来挤
+3.每一个按钮和小旗都是一个小盒子
+4.分数的更新通过innerHTML来实现
+5.灰色旗子的可见通过分数来控制
+6.选择使用节点的操作来获取分数并进行修改 -->
+
+<!-- 小组生成的大致构想
+
+1.一个存放组名的数组
+2.尝试通过构造函数构造小组对象
+3.创建第一个组，其他组使用深度克隆生成-->

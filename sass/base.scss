@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font: normal normal 16px 'sans-serif  Microsoft YaHei  SimSun';
+    overflow: hidden;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,ul,ol,li,p,div {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: default;
+    user-select: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.f_l {
+    float: left;
+}
+
+.f_r {
+    float: right;
+}

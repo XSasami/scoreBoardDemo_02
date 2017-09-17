@@ -1,0 +1,192 @@
+@charset 'utf-8';
+@import './base.scss';
+
+// 盒子上下左右居中
+@mixin boxCenter($left, $top, $X, $Y) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    transform: translate($X, $Y);
+}
+// 文字上下左右居中
+@mixin fontCenter($lineHeight){
+    text-align: center;
+    line-height: $lineHeight;
+}
+// 关闭按钮定位于右上角
+@mixin setClose($color){
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: $color;
+    font: normal bold 18px 'sans-serif';
+}
+
+// 计分板
+.scoreBoard {
+    @include boxCenter(50%, 50%, -50%, -50%);
+    background-color: #ffb333;
+    padding: 6px;
+    border-radius: 10px;
+    .content {
+        width: 500px;
+        height: 329px;
+        background-color: #fff;
+        border-radius: 7px;
+        position: relative;
+        .title {
+            @include boxCenter(50%, 0, -50%, -50%);
+            width: 335px;
+            height: 70px;
+            background-color: #ffa60f;
+            border-radius: 5px;
+            font: normal bold 34px 'KaiTi';
+            @include fontCenter(70px);
+        }
+        .close {
+            @include setClose(#000);
+        } // 添加组
+        .addGroup {
+            position: absolute;
+            width: 120px;
+            height: 36px;
+            background-color: #ffa000;
+            border-radius: 5px;
+            @include fontCenter(36px);
+            bottom: 21px;
+            left: 50%;
+            transform: translateX(-50%);
+        } // 小组容器
+        .groups {
+            width: 100%;
+            height: 329px;
+            padding-top: 36px;
+            box-sizing: border-box;
+            display: none;
+            .group {
+                width: 100px;
+                height: 284px;
+                padding: 42px 25px 0 25px;
+                position: relative;
+                &:nth-of-type(even) {
+                    background-image: linear-gradient(to bottom, #fff, #EEEEEE, #fff);
+                }
+                .groupN {
+                    width: 100%;
+                    height: 42px;
+                    @include fontCenter(42px);
+                    font-size: 16px;
+                    color: #000;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                .subScore {
+                    width: 20px;
+                    height: 20px;
+                    @include fontCenter(20px);
+                    border-radius: 50%;
+                    color: #FFA000;
+                    font-size: 23px;
+                    margin: 0 auto;
+                }
+                .flagContent {
+                    width: 100%;
+                    height: 162px;
+                    padding-top: 12px;
+                    overflow: hidden;
+                    span {
+                        display: block;
+                        margin-bottom: 10px;
+                        width: 25px;
+                        height: 20px;
+                        background-color: red;
+                        float: left;
+                    }
+                }
+                .score {
+                    height: 28px;
+                    @include fontCenter(26px);
+                    color: #333;
+                    font-size: 18px;
+                }
+                .addScore {
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    background: url('../images/add.png') no-repeat center center;
+                }
+            }
+        }
+    }
+}
+
+// 立即分组
+.mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 999;
+    display: none;
+    .grouping {
+        position: absolute;
+        padding: 5px 5px 5px 5px;
+        background-color: #40A58C;
+        border-radius: 5px;
+        @include boxCenter(50%, 50%, -50%, -50%);
+        .close {
+            @include setClose(#fff);
+        }
+        .title {
+            height: 57px;
+            @include fontCenter(57px);
+            font-size: 18px;
+        }
+        .content {
+            width: 890px;
+            height: 572px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 5px;
+            .show {
+                @include boxCenter(50%, 50%, -50%, -50%);
+                color: #000;
+                @include fontCenter(37px);
+                .set {
+                    width: 154px;
+                    height: 37px;
+                    border: 1px solid #63637F;
+                    margin: 0 15px;
+                    .add, .sub {
+                        width: 35px;
+                        height: 35px;
+                        font: normal bold 30px/32px 'sans-serif';
+                        color: #40A58C;
+                    }
+                    .add {
+                        border-left: 1px solid #63637F;
+                    }
+                    .sub {
+                        border-right: 1px solid #63637F;
+                    }
+                    .count {
+                        font-size: 20px;
+                    }
+                }
+            }
+            .begin {
+                position: absolute;
+                width: 120px;
+                height: 36px;
+                background-color: #40A58C;
+                border-radius: 5px;
+                @include fontCenter(36px);
+                bottom: 21px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
