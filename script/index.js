@@ -98,9 +98,9 @@ window.onload = function() {
   var begin_grouping = document.querySelector(".grouping >.content >.begin"); // 开始分组按钮
   var groups = document.querySelector(".groups"); // 分组容器
   var group = groups.children[0]; // 第一个分组
-  group.children[1].addEventListener("click", subScore);
+  group.children[1].addEventListener("click", subScore); // 
   group.children[4].addEventListener("click", addScore);
-
+  // 创建分组序列号
   var groupNum = [
     "一",
     "二",
@@ -165,6 +165,9 @@ window.onload = function() {
     var score = parseInt(tarEle.innerHTML);
     score++;
     tarEle.innerHTML = score;
+    if ((flagContain.children[0].getAttribute("class") || '') == "grayFlag") {
+      flagContain.removeChild(flagContain.children[0]);
+    }
     flagContain.appendChild(document.createElement("span"));
   }
 
@@ -179,5 +182,8 @@ window.onload = function() {
     score--;
     tarEle.innerHTML = score;
     flagContain.removeChild(flags[flags.length - 1]);
+    if (score == 0) {
+      flagContain.innerHTML = "<div class='grayFlag'></div>"
+    }
   }
 };

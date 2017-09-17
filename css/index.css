@@ -153,6 +153,12 @@ a {
   padding-top: 12px;
   overflow: hidden;
 }
+.scoreBoard .content .groups .group .flagContent .grayFlag {
+  width: 25px;
+  height: 20px;
+  margin: 0 auto;
+  background-color: #A7A4A4;
+}
 .scoreBoard .content .groups .group .flagContent span {
   display: block;
   margin-bottom: 10px;
